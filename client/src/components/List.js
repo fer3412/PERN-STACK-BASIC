@@ -25,14 +25,12 @@ const List = (props) => {
         slot_m:slot
       };
 
-      const deleteTodo = await fetch("http://localhost:5000/route", {
+      await fetch("http://localhost:5000/route", {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
 
-      //console.log(deleteTodo);
-      //getRoute();
       props.getRutec();
       //setTodos(todos.filter(todo => todo.todo_id !== id));
     } catch (err) {
@@ -48,7 +46,7 @@ const List = (props) => {
         slot_m:slot
       };
 
-      const deleteTodo = await fetch("http://localhost:5000/route", {
+      await fetch("http://localhost:5000/route", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -77,16 +75,13 @@ const List = (props) => {
       decimal = "30"
     }   
     return hour + ":" + decimal + tap ;
-  }
+  };
 
   function onClickL(ssuid1,slotn){
 
-    console.log(ssuid1 + " -- " + slotn);
     if(ssuid1 === ""){
-      console.log("Nuevo");
       NewSlot(props.items.uuid,slotn);
     }else if(ssuid1 === props.items.uuid){
-      console.log("Delete");
       deleteSlot(props.items.uuid,slotn);
     }
     
@@ -101,7 +96,7 @@ const List = (props) => {
 
 
 
- var rows = [];
+ const rows = [];
  for (let i2 = 0; i2 < 25; i2++) {
      
     let cont = {flag:"",uuid:""};

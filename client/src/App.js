@@ -43,7 +43,7 @@ function App() {
       data:true,
       uuid:{uuid:id}
     });
-  };;
+  };
 
   useEffect(() => {
     getUUID();
